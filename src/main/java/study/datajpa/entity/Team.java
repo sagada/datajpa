@@ -10,7 +10,11 @@ import java.util.List;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of ={"id", "name"})
-public class Team {
+@NamedQuery(
+        name ="Team.namedQuery",
+        query = "select t from Team t where t.name = :name"
+)
+public class Team extends JpaBaseEntity{
 
     @Id
     @GeneratedValue
